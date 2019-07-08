@@ -44,7 +44,14 @@ class App extends Component {
 
     //HANDLE THE RESET OF THE GAME
     handleReset = () => {
-
+        this.setState({
+            friends,
+            answer: '',
+            topScore: 0,
+            currentScore: 0,
+            clicked: []
+        });
+        this.handleShuffle();
     };
 
 
