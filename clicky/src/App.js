@@ -3,9 +3,9 @@ import FriendCard from "./components/FriendCard";
 import Nav from "./components/Nav";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import Container from "./Container";
-import Row from "./Row";
-import Col from "./Column";
+import Container from "./container";
+import Row from "./row";
+import Col from "./col";
 import friends from "./friends.json";
 
 function ranFriends(array) {
@@ -76,6 +76,40 @@ class App extends Component {
         });
         this.handleShuffle();
     };
+
+    render() {
+        return (
+            <Wrapper>
+                <Nav
+                    title="Kalebs Click Game"
+                    currentScore={this.state.currentScore}
+                    topScore={this.state.topScore}
+                    answer={this.state.answer}
+                />
+                <Title>
+                    Click images to score but dont click the same one twice or yah loose!
+                </Title>
+                <Container>
+                    <Row>
+                        {this.state.friends.map(friend => (
+                            <Col size="md-3 sm-6">
+                                <FriendCard
+                                    key={friend.id}
+                                    handleClick={this.handleClick}
+                                    handleIncrement={this.handleIncrement}
+                                    handleReset={this.handleReset}
+                                    handleShuffle={this.handleShuffle}
+                                    id={friend.id}
+                                    image={friend.image}
+                                    name={friend.name}
+                                />
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+            </Wrapper>
+        )
+    }
 
 
 }

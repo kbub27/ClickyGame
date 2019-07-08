@@ -1,4 +1,5 @@
 import React from 'react';
+import './friendCss.css';
 
 const FriendCard = props => {
     return (
