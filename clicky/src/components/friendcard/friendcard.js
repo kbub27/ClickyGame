@@ -4,7 +4,7 @@ import './friendCss.css';
 const FriendCard = props => {
     return (
         <div 
-        className="card"
+        className="card mt-4"
         value={props.id}
         onClick={() => props.handleClick(props.id)} 
         >

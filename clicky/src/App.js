@@ -56,10 +56,13 @@ class App extends Component {
             this.setState({
                 topScore: newScore
             });
-        } else if (newScore === 12) {
+        };
+        if (newScore === 12) {
+            const won = "You have beat the game!!!"
             this.setState({
-                answer: "You won the game!"
+                answer: won
             });
+            alert(won);
             this.handleReset();
         };
         this.handleShuffle();
@@ -87,12 +90,12 @@ class App extends Component {
                     answer={this.state.answer}
                 />
                 <Title>
-                    Click images to score but dont click the same one twice or yah loose!
+                    Click images to score but dont click the same one twice or you loose!
                 </Title>
                 <Container>
                     <Row>
                         {this.state.friends.map(friend => (
-                            <Col size="md-3 sm-6">
+                            <Col size="lg-2 md-3 sm-6">
                                 <FriendCard
                                     key={friend.id}
                                     handleClick={this.handleClick}
