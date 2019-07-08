@@ -34,7 +34,14 @@ class App extends Component {
 
     //HANDLE THE CLICKS
     handleClick = id => {
-
+        if (this.state.clicked.indexOf(id) === -1) {
+            this.handleScore();
+            this.setState({
+                clicked: this.state.clicked.concat(id)
+            });
+        } else {
+            this.handleReset();
+        }
     };
 
     //HANDLE TH ESCORE INCREASE OR RESET AND TOPSCORE
