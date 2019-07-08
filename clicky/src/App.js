@@ -39,7 +39,23 @@ class App extends Component {
 
     //HANDLE TH ESCORE INCREASE OR RESET AND TOPSCORE
     handleScore = () => {
-
+        const newScore = this.state.currentScore + 1;
+        this.setState({
+            currentScore: newScore,
+            answer: "Correct!!"
+        });
+        // HANDLE TOP SCORE AND GAME WIN
+        if (newScore >= this.state.topScore) {
+            this.setState({
+                topScore: newScore
+            });
+        } else if (newScore === 12) {
+            this.setState({
+                answer: "You won the game!"
+            });
+            this.handleReset();
+        };
+        this.handleShuffle();
     };
 
     //HANDLE THE RESET OF THE GAME
